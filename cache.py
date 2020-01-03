@@ -1,4 +1,6 @@
 from redis import Redis
 
 
-client = Redis(host='0.0.0.0', port=6379, db=0)
+# Change the host to '0.0.0.0' if you start the application
+# locally
+client = Redis(host='redis', port=6379, db=0)

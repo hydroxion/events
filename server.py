@@ -11,14 +11,14 @@ application.register_blueprint(sensor)
 
 def start_server():
     print(' * Server start')
-    
+
     application.run(
-        host='127.0.0.1',
+        host='0.0.0.0',
         port=5000,
         debug=False,  # Use signals
         load_dotenv=False,
         use_reloader=False,  # Use signals
-        threaded=False,
+        threaded=True,  # Required
         processes=1
         # ssl_context='adhoc' # Requires Py Open SSL
     )

@@ -21,10 +21,10 @@ services:
     networks:
       - public
     volumes:
-      - data:/data
+      - redis-data:/data
 
 volumes:
-  data:
+  redis-data:
 
 networks:
   public:
