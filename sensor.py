@@ -7,7 +7,7 @@ from uuid import uuid4
 from cache import client
 
 
-sensor = Blueprint(__name__)
+sensor = Blueprint('sensor', __name__)
 
 STATUS = {
     'no_content': ('No content, check the request body', 204),
