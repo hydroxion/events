@@ -1,3 +1,4 @@
-flask
-schedule
-autopep8
+Flask==1.1.1
+schedule==0.6.0
+redis==3.3.11
+autopep8==1.4.4
