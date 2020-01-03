@@ -1,6 +1,8 @@
+# Require Redis
+
 # Run (build): docker build -t events .
 
-# Run (container): docker run -it --rm --name events events # Container / image name
+# Run (container): docker run -it --rm --name events events  # Container / image name
 
 FROM python:3
 
@@ -14,6 +16,4 @@ COPY . .
 
 EXPOSE 5000
 
-# Run (Redis): docker run -p 6379:6379 --name redis -d redis
-
-# CMD ['python', 'start.py'] # Depends of Redis locally
+# CMD ['python', 'start.py']  
