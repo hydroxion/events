@@ -14,4 +14,6 @@ COPY . .
 
 EXPOSE 5000
 
+# Run (Redis): docker run -p 6379:6379 --name redis -d redis
+
 # CMD ['python', 'start.py'] # Depends of Redis locally
