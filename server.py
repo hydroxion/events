@@ -10,6 +10,8 @@ application.register_blueprint(sensor)
 
 
 def start_server():
+    print(' * Server start')
+    
     application.run(
         host='127.0.0.1',
         port=5000,
