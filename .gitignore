@@ -1,12 +1,9 @@
 # Byte-compiled
-__pycache__/
+__pycache__
 *.pyc
 
-# Environments
-.env
-.venv
-env/
-venv/
+# Environment
+venv
 
 # Editor
 .vscode
