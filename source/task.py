@@ -37,6 +37,8 @@ def start_message(pubsub):
         if message:
             print(message)
 
+        sleep(0.001)
+
 
 def start_task():
     print(' * Task start')
