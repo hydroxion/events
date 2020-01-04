@@ -7,7 +7,6 @@ from time import sleep
 from random import choice
 
 
-
 process = Blueprint('process', __name__)
 
 
