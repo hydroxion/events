@@ -1,19 +1,17 @@
 # Require Redis
 
-# Run (build): docker build -t events .
+# Run (build image): docker build -t events .
 
-# Run (container): docker run -it --rm --name events events  # Container / image name
+# Run (create container): docker run -it --rm --name events events  # Container name / image name
 
 FROM python:3
 
 WORKDIR /code
 
-COPY requirements.txt ./
+COPY . .
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY . .
-
 EXPOSE 5000
 
-# CMD ['python', 'start.py']  
+# CMD ['python', './source/start.py']  # Disabled to work with Docker Compose
