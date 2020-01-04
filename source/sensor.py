@@ -40,15 +40,16 @@ def webhook():
     trace = uuid4().hex
 
     client.publish(
-        'url',
+        'webhook',
         str({
             'url': document.get('url'),
             'trace': trace,
-            'time': datetime.today().strftime('%x %X')
+            'register': datetime.today().strftime('%x %X'),
+            'seconds': document.get('seconds', 5)
         })
     )
     
-    return Response(f'Request registered, trace {trace}', 200)
+    return Response(f'Registered {trace}', 200)
 
 
 sensor.add_url_rule('/webhook', view_func=webhook, methods=['POST'])

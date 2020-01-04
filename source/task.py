@@ -7,29 +7,44 @@ import schedule
 from cache import client
 
 
-def url():
-    print('Url')
+from threading import Thread
 
 
-def task_url(message):  # message.get('data')
-    schedule.every(1).seconds.do(url)
+from ast import literal_eval
+
+
+def request(data):
+    print(data)
+
+
+def channel_webhook(message):
+    data = literal_eval(message.get('data', {}).decode('utf-8'))
+
+    schedule.every(data.get('seconds')).seconds.do(lambda: request(data))
+
+
+def start_schedule():
+    while True:
+        schedule.run_pending()
+
+        sleep(1)
+
+
+def start_message(pubsub):
+    while True:
+        message = pubsub.get_message()
+
+        if message:
+            print(message)
 
 
 def start_task():
     print(' * Task start')
 
+    Thread(target=start_schedule, name='Schedule').start()
+
     pubsub = client.pubsub()
 
-    pubsub.subscribe(**{'url': task_url})
+    pubsub.subscribe(**{'webhook': channel_webhook})
 
-    while True:
-        # This log is not 100% accurate, once it doesn't
-        # read all the messages before sleep
-        message = pubsub.get_message()
-
-        if message:
-            print('Message: ', message)
-
-        schedule.run_pending()
-
-        sleep(1)
+    Thread(target=start_message, name='Message', args=(pubsub,)).start()
