@@ -15,6 +15,8 @@ from ast import literal_eval
 
 from requests import post, Timeout
 
+from requests.exceptions import MissingSchema
+
 
 def request(data):
     try:
@@ -24,6 +26,8 @@ def request(data):
             return schedule.CancelJob
     except Timeout:
         pass
+    except MissingSchema:
+        return schedule.CancelJob
 
 
 def channel_webhook(message):
