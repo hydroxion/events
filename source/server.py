@@ -4,9 +4,14 @@ from flask import Flask
 from sensor import sensor
 
 
+from process import process
+
+
 application = Flask(__name__)
 
 application.register_blueprint(sensor)
+
+application.register_blueprint(process)
 
 
 def start_server():
