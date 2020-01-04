@@ -13,8 +13,17 @@ from threading import Thread
 from ast import literal_eval
 
 
+from requests import post, Timeout
+
+
 def request(data):
-    print(data)
+    try:
+        response = post(data.get('url'), json=data, timeout=data.get('seconds')).json()
+
+        if response.status:
+            return schedule.CancelJob
+    except Timeout:
+        pass
 
 
 def channel_webhook(message):
