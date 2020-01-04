@@ -39,7 +39,7 @@ def webhook():
         })
     )
 
-    return Response(f'Registered {trace}', 200)
+    return Response('Registered {trace}'.format(trace=trace), 200)
 
 
 sensor.add_url_rule('/webhook', view_func=webhook, methods=['POST'])
