@@ -7,6 +7,9 @@ from uuid import uuid4
 from cache import client
 
 
+from datetime import datetime
+
+
 sensor = Blueprint('sensor', __name__)
 
 STATUS = {
@@ -40,10 +43,11 @@ def webhook():
         'url',
         str({
             'url': document.get('url'),
-            'trace': trace
+            'trace': trace,
+            'time': datetime.today().strftime('%x %X')
         })
     )
-
+    
     return Response(f'Request registered, trace {trace}', 200)
 
 
