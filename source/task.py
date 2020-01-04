@@ -22,7 +22,7 @@ def request(data):
     try:
         response = post(data.get('url'), json=data, timeout=data.get('seconds')).json()
 
-        if response.status:
+        if response.get('status'):
             return schedule.CancelJob
     except Timeout:
         pass
