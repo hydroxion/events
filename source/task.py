@@ -33,7 +33,7 @@ def request(data):
 def channel_webhook(message):
     data = literal_eval(message.get('data', {}).decode('utf-8'))
 
-    schedule.every(data.get('seconds')).seconds.do(lambda: request(data)).tag('webhook', data.get('trace'))
+    schedule.every(data.get('seconds')).seconds.do(request, data).tag('webhook', data.get('trace'))
 
 
 def start_schedule():
