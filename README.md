@@ -4,13 +4,14 @@ Schedule events over time.
 
 ## About
 
-Schedule events over time with Redis pub / sub.
+Schedule events over time with pub / sub, concurrency and scheduler.
 
 ## Built with
 
 - [Python](https://www.python.org/)
 - [Flask](https://flask.palletsprojects.com/en/2.0.x/)
 - [Redis](https://redis.io/)
+- [Threading](https://docs.python.org/3/library/threading.html)
 - [Schedule](https://schedule.readthedocs.io/en/stable/)
 - [Docker](https://www.docker.com/)
 
@@ -33,7 +34,7 @@ chmod +x /usr/bin/docker-compose
 Download the necessary Docker images and create an API container.
 
 ```sh
-docker-compose -f docker-compose.yml up -d
+sudo docker-compose -f docker-compose.yml up -d
 ```
 
 ## Usage

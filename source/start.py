@@ -1,6 +1,5 @@
 from threading import Thread
 
-
 from task import start_task
 
 from server import start_server
