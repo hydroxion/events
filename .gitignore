@@ -1,12 +1,12 @@
-# Byte-compiled
-__pycache__
-*.pyc
+# Editor
+.vscode
 
 # Environment
 venv
 
-# Editor
-.vscode
-
 # Log
 log/*.json
+
+# Cache
+__pycache__
+cache_dir

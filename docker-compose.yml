@@ -1,6 +1,4 @@
-# Run (build images / create contianers): docker-compose up -d
-
-version: '3.7'
+version: '3.3'
 
 services:
   events:
@@ -19,6 +17,7 @@ services:
       - ./source:/code/source/
       - ./log:/code/log/
     command: ['python', './source/start.py']
+  
   redis:
     container_name: redis
     restart: always
