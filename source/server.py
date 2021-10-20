@@ -1,8 +1,6 @@
 from flask import Flask
 
-
 from sensor import sensor
-
 
 from process import process
 

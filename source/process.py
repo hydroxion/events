@@ -1,8 +1,6 @@
 from flask import Blueprint, request, jsonify
 
-
 from time import sleep
-
 
 from random import choice
 

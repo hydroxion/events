@@ -1,17 +1,12 @@
 from time import sleep
 
-
 import schedule
-
 
 from cache import client
 
-
 from threading import Thread
 
-
 from ast import literal_eval
-
 
 from requests import post, Timeout
 
@@ -20,7 +15,11 @@ from requests.exceptions import MissingSchema
 
 def request(data):
     try:
-        response = post(data.get('url'), json=data, timeout=data.get('seconds')).json()
+        response = post(
+            data.get('url'),
+            json=data,
+            timeout=data.get('seconds')
+        ).json()
 
         if response.get('status'):
             return schedule.CancelJob

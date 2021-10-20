@@ -1,14 +1,10 @@
 from flask import Blueprint, request, Response
 
-
 from uuid import uuid4
-
 
 from cache import client
 
-
 from datetime import datetime
-
 
 from utils import missing_attributes, STATUS
 
